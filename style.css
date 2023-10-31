@@ -1,0 +1,93 @@
+body {
+  font-family: 'XoloniumRegular';
+  font-weight: normal;
+  font-style: normal;
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+#assignmentList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#assignmentList li {
+  border-radius: 4px;
+  margin-top: 5px;
+  padding: 10px;
+  width: 200px;
+  text-align: left;
+}
+
+.jedi {
+  background: rgb(8,53,97);
+  background: linear-gradient(90deg, rgba(8,53,97,1) 0%, rgba(0,212,255,1) 100%);
+  border-style: solid;
+  border-color: #0cf;
+  border-width: 1px;
+  box-shadow: 0px 2px 12px 2px rgba(0, 210, 255, 0.7);
+  color: white; /* Ensuring text is visible on a dark background */
+}
+
+.sith {
+  background: rgb(97,8,8);
+  background: linear-gradient(90deg, rgba(97,8,8,1) 0%, rgba(255,0,0,1) 100%);
+  border-style: solid;
+  border-color: red;
+  border-width: 1px;
+  box-shadow: 0px 2px 12px 2px rgba(255, 0, 0, 0.7);
+  color: white; /* Ensuring text is visible on a dark background */
+}
+
+/* Button */
+#generate {
+  font-family: 'XoloniumRegular';
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FEE300;
+  border: solid 4px #FEE300;
+  color: #000;
+  padding: 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 6px 4px;
+  cursor: pointer;
+  /* Add the clip-path property for the angled cut */
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* Lightspeed Background */
+#starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
