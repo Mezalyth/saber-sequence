@@ -1,6 +1,7 @@
 body {
-  font-family: 'XoloniumRegular';
-  font-weight: normal;
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
   font-style: normal;
   background-color: #111;
   display: flex;
@@ -10,8 +11,14 @@ body {
   margin: 0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: white;
+  font-weight: 900;
+}
+
 .container {
   text-align: center;
+  width: 80%;
 }
 
 #assignmentList {
@@ -23,7 +30,6 @@ body {
   border-radius: 4px;
   margin-top: 5px;
   padding: 10px;
-  width: 200px;
   text-align: left;
 }
 
@@ -34,7 +40,7 @@ body {
   border-color: #0cf;
   border-width: 1px;
   box-shadow: 0px 2px 12px 2px rgba(0, 210, 255, 0.7);
-  color: white; /* Ensuring text is visible on a dark background */
+  color: white; 
 }
 
 .sith {
@@ -44,18 +50,17 @@ body {
   border-color: red;
   border-width: 1px;
   box-shadow: 0px 2px 12px 2px rgba(255, 0, 0, 0.7);
-  color: white; /* Ensuring text is visible on a dark background */
+  color: white; 
 }
 
-/* Button */
-#generate {
-  font-family: 'XoloniumRegular';
-  font-weight: normal;
+button {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
   font-style: normal;
-  background-color: #FEE300;
-  border: solid 4px #FEE300;
+  background-color: #fec700;
   color: #000;
-  padding: 6px;
+  padding: 16px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
