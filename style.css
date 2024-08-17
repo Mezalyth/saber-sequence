@@ -1,98 +1,71 @@
 body {
   font-family: "Orbitron", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 600;
   font-style: normal;
+  font-weight: 600;
   background-color: #111;
-  display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-h1, p {
-  color: white;
-}
-
-.container {
+  margin: auto;
   text-align: center;
 }
 
-#assignmentList {
-  list-style-type: none;
-  padding: 0;
+h1, h2, h3, p {
+  color: white;
+  text-align: center;
 }
 
-#assignmentList li {
-  border-radius: 4px;
-  margin-top: 5px;
-  padding: 10px;
+ul {
+  margin: auto;
+  padding: 0;
+  width: 90%;
+}
+
+li {
+  background: rgb(43, 43, 43);
+  background: linear-gradient(90deg, rgb(37, 37, 37) 0%, rgb(99, 99, 99) 100%);
+  border-style: solid;
+  border-color: rgb(144, 144, 144);
+  border-radius: 6px;
+  border-width: 1px;
+  box-shadow: 0px 2px 12px 2px rgba(128, 127, 127, 0.7);
+  color: rgb(172, 172, 172);
+  list-style-type: none;
+  margin: 2px;
+  padding: 20px;
+  padding-inline-start: 40px;
   text-align: left;
 }
 
-.jedi {
+button {
+  background: #000;
+  border: 4px solid #ffd900;
+  border-radius: 60px;
+  color: #ffd900;
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin-top: 30px;
+  padding: 24px;
+}
+
+.light-side {
   background: rgb(8,53,97);
   background: linear-gradient(90deg, rgba(8,53,97,1) 0%, rgba(0,212,255,1) 100%);
   border-style: solid;
   border-color: #0cf;
   border-width: 1px;
   box-shadow: 0px 2px 12px 2px rgba(0, 210, 255, 0.7);
-  color: white; /* Ensuring text is visible on a dark background */
+  color: white; 
 }
 
-.sith {
+.dark-side {
   background: rgb(97,8,8);
   background: linear-gradient(90deg, rgba(97,8,8,1) 0%, rgba(255,0,0,1) 100%);
   border-style: solid;
   border-color: red;
   border-width: 1px;
   box-shadow: 0px 2px 12px 2px rgba(255, 0, 0, 0.7);
-  color: white; /* Ensuring text is visible on a dark background */
+  color: white;
 }
 
-/* Button */
-button {
-  font-family: "Orbitron", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-  background-color: #FEE300;
-  border: solid 4px #FEE300;
-  color: #000;
-  padding: 12px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1rem;
-  margin: 6px 4px;
-  cursor: pointer;
-  /* Add the clip-path property for the angled cut */
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
-}
-
-/* Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in {
-  animation: fadeIn 0.4s ease forwards;
-}
-
-/* Lightspeed Background */
-#starfield {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
