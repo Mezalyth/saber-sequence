@@ -1,6 +1,7 @@
 body {
-  font-family: 'XoloniumRegular';
-  font-weight: normal;
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
   font-style: normal;
   background-color: #111;
   display: flex;
@@ -8,6 +9,10 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+}
+
+h1, p {
+  color: white;
 }
 
 .container {
@@ -23,7 +28,6 @@ body {
   border-radius: 4px;
   margin-top: 5px;
   padding: 10px;
-  width: 200px;
   text-align: left;
 }
 
@@ -48,18 +52,19 @@ body {
 }
 
 /* Button */
-#generate {
-  font-family: 'XoloniumRegular';
-  font-weight: normal;
+button {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
   font-style: normal;
   background-color: #FEE300;
   border: solid 4px #FEE300;
   color: #000;
-  padding: 6px;
+  padding: 12px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14px;
+  font-size: 1rem;
   margin: 6px 4px;
   cursor: pointer;
   /* Add the clip-path property for the angled cut */
