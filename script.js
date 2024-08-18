@@ -96,14 +96,14 @@ function changeStrike(button) {
   modal.style.display = "block";
 
   const strikeButtonsDiv = document.getElementById("strikeButtons");
-  strikeButtonsDiv.innerHTML = ""; // Clear previous buttons if any
+  strikeButtonsDiv.innerHTML = ""; 
 
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 0; i < strike.length; i++) {
     const btn = document.createElement("button");
-    btn.innerHTML = i;
+    btn.innerHTML = `${strike[i]}`; 
     btn.onclick = function () {
-      applyStrike(listItem, i);
-      modal.style.display = "none"; // Close the modal
+      applyStrike(listItem, i + 1);
+      modal.style.display = "none"; 
     };
     strikeButtonsDiv.appendChild(btn);
   }
@@ -120,6 +120,7 @@ function changeStrike(button) {
   };
 }
 
+// ------ Apply Strike Change ------
 function applyStrike(listItem, strikeNumber) {
   const strikeIndex = strikeNumber - 1;
 
@@ -136,4 +137,3 @@ function applyStrike(listItem, strikeNumber) {
       <button onclick="changeStrike(this)">Change Strike</button>
     </div>`;
 }
-
