@@ -48,7 +48,7 @@ function makeFight() {
     }
 
     item.innerHTML = `
-      <span class="side-icon">${selectedSide} ${selectedStrike} ${selectedIcon}</span>
+      <span class="side-icon">${selectedIcon}${selectedSide} ${selectedStrike}</span>
       <div class="button-container">
         <button onclick="switchSides(this)">Switch Sides</button>
         <button onclick="changeStrike(this)">Change Strike</button>
@@ -80,7 +80,7 @@ function switchSides(button) {
   const selectedIconHtml = sideIconSpan.innerHTML.replace(sideIconSpan.textContent.trim(), '');
 
   listItem.innerHTML = `
-    <span class="side-icon">${newSide} ${strikeText} ${selectedIconHtml}</span>
+    <span class="side-icon">${selectedIconHtml}${newSide} ${strikeText} </span>
     <div class="button-container">
       <button onclick="switchSides(this)">Switch Sides</button>
       <button onclick="changeStrike(this)">Change Strike</button>
@@ -131,7 +131,7 @@ function applyStrike(listItem, strikeNumber) {
   const newIcon = icons[strikeIndex];
 
   listItem.innerHTML = `
-    <span class="side-icon">${currentSide} ${newStrike} ${newIcon}</span>
+    <span class="side-icon">${newIcon}${currentSide} ${newStrike}</span>
     <div class="button-container">
       <button onclick="switchSides(this)">Switch Sides</button>
       <button onclick="changeStrike(this)">Change Strike</button>
