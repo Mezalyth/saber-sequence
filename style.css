@@ -1,11 +1,18 @@
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
 body {
   font-family: "Orbitron", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 600;
-  background-color: #111;
-  justify-content: center;
+  background: rgb(0,39,115);
+  background: linear-gradient(90deg, rgba(0,39,115,1) 0%, rgba(16,16,16,1) 10%, rgba(16,16,16,1) 90%, rgba(69,0,0,1) 100%);  justify-content: center;
   align-items: center;
+  height: 100%;
+  overflow: auto;
   margin: auto;
   text-align: center;
 }
@@ -34,19 +41,48 @@ li {
   margin: 2px;
   padding: 20px;
   padding-inline-start: 40px;
+  position: relative; 
   text-align: left;
 }
 
-button {
+li button {
+  background: #0000004b;
+  border: 1px solid white;
+  border-radius: 60px;
+  color: white;
+  cursor: pointer;
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+  padding: 6px 20px;
+  position: absolute;
+  right: 10px; 
+  top: 50%; 
+  transform: translateY(-50%);
+  transition: box-shadow 0.1s ease; 
+}
+
+li button:active {
+  box-shadow: inset 0 4px 2px #00000084;
+}
+
+#generator {
   background: #000;
   border: 4px solid #ffd900;
   border-radius: 60px;
   color: #ffd900;
+  cursor: pointer;
   font-family: "Orbitron", sans-serif;
-  font-optical-sizing: auto;
   font-style: normal;
-  margin-top: 30px;
+  font-weight: 600;
+  margin: 30px;
   padding: 24px;
+  transition: box-shadow 0.2s ease; 
+}
+
+#generator:active {
+  box-shadow: 0 0 20px rgb(255, 217, 0);
 }
 
 .light-side {
@@ -68,4 +104,3 @@ button {
   box-shadow: 0px 2px 12px 2px rgba(255, 0, 0, 0.7);
   color: white;
 }
-
