@@ -34,29 +34,51 @@ function makeFight() {
       item.classList.add('dark-side');
     }
 
-    item.innerHTML = `${selectedSide} ${selectedStrike} <button onclick="switchSides(this)">Switch Sides</button>`;
+    item.innerHTML = `
+  ${selectedSide} ${selectedStrike}
+  <div class="button-container">
+    <button onclick="switchSides(this)">Switch Sides</button>
+    <button onclick="changeStrike(this)">Change Strike</button>
+  </div>`;
+
   });
 }
 
 // ------ Switch Sides ------
 function switchSides(button) {
-  // Get the parent <li> element
-  const listItem = button.parentElement;
+  const listItem = button.parentElement.parentElement;
 
-  // Get the current text content (excluding the button text)
-  let text = listItem.textContent.replace("Switch Sides", "").trim();
+  let text = listItem.textContent.replace("Switch Sides", "").replace("Change Strike", "").trim();
 
-  // Swap the class and text based on the current side
   if (listItem.classList.contains('light-side')) {
     listItem.classList.remove('light-side');
     listItem.classList.add('dark-side');
-    text = text.replace('Light', 'Dark'); // Swap the text from Light to Dark
+    text = text.replace('Light', 'Dark'); 
   } else if (listItem.classList.contains('dark-side')) {
     listItem.classList.remove('dark-side');
     listItem.classList.add('light-side');
-    text = text.replace('Dark', 'Light'); // Swap the text from Dark to Light
+    text = text.replace('Dark', 'Light');
   }
 
-  // Update the list item's content with the swapped side text and the button
-  listItem.innerHTML = `${text} <button onclick="switchSides(this)">Switch Sides</button>`;
+  listItem.innerHTML = `
+    ${text}
+    <div class="button-container">
+      <button onclick="switchSides(this)">Switch Sides</button>
+      <button onclick="changeStrike(this)">Change Strike</button>
+    </div>`;
+}
+
+// ------ Change Strike ------
+function changeStrike(button) {
+  const listItem = button.parentElement.parentElement;
+
+  let text = listItem.textContent.replace("Switch Sides", "").replace("Change Strike", "").trim();
+
+  listItem.innerHTML = `
+    ${text}
+    <div class="button-container">
+      <button onclick="switchSides(this)">Switch Sides</button>
+      <button onclick="changeStrike(this)">Change Strike</button>
+    </div>`;
+
 }
