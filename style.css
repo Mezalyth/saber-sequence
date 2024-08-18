@@ -44,8 +44,8 @@ li {
   position: relative; 
   text-align: left;
   display: flex;
-  justify-content: space-between; /* Space between elements pushes buttons to the right */
-  align-items: center; /* Center-aligns everything vertically */
+  justify-content: space-between;
+  align-items: center; 
   padding: 10px;
 }
 
@@ -70,11 +70,11 @@ li button {
   font-style: normal;
   font-weight: 500;
   padding: 6px 20px;
-  transition: box-shadow 0.1s ease;
+  transition: background-color 0.1s ease;
 }
 
 li button:active {
-  box-shadow: inset 0 2px 2px #00000084;
+  background: #000000a5;
 }
 
 #generator {
@@ -117,7 +117,59 @@ li button:active {
 }
 
 .side-icon {
-  display: inline-flex; /* Keep icon and text together */
+  display: inline-flex; 
   align-items: center;
-  gap: 4px; /* Small gap between icon and text */
+  gap: 4px; 
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #061525e7;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  width: 80%; 
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#strikeButtons {
+  display: grid;
+  grid-template-columns: repeat(5, auto); /* Adjusts columns to fit content */
+  gap: 10px; /* Uniform gap */
+  justify-content: center; /* Center the grid */
+}
+
+#strikeButtons button {
+  padding: 10px;
+  font-size: 16px;
+  width: 60px;
+  cursor: pointer;
 }

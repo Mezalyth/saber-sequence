@@ -91,16 +91,40 @@ function switchSides(button) {
 function changeStrike(button) {
   const listItem = button.parentElement.parentElement;
 
-  let strikeNumber = parseInt(prompt("Enter a number between 1 and 10 for the new strike:"), 10);
+  const modal = document.getElementById("strikeModal");
 
-  while (isNaN(strikeNumber) || strikeNumber < 1 || strikeNumber > 10) {
-    strikeNumber = parseInt(prompt("Invalid input. Please enter a number between 1 and 10:"), 10);
+  modal.style.display = "block";
+
+  const strikeButtonsDiv = document.getElementById("strikeButtons");
+  strikeButtonsDiv.innerHTML = ""; // Clear previous buttons if any
+
+  for (let i = 1; i <= 10; i++) {
+    const btn = document.createElement("button");
+    btn.innerHTML = i;
+    btn.onclick = function () {
+      applyStrike(listItem, i);
+      modal.style.display = "none"; // Close the modal
+    };
+    strikeButtonsDiv.appendChild(btn);
   }
 
+  const closeBtn = document.getElementsByClassName("close")[0];
+  closeBtn.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+}
+
+function applyStrike(listItem, strikeNumber) {
   const strikeIndex = strikeNumber - 1;
-  
+
   const sideIconSpan = listItem.querySelector('.side-icon');
-  const [currentSide, ...strikeParts] = sideIconSpan.textContent.trim().split(' ');
+  const [currentSide] = sideIconSpan.textContent.trim().split(' ');
 
   const newStrike = strike[strikeIndex];
   const newIcon = icons[strikeIndex];
@@ -112,3 +136,4 @@ function changeStrike(button) {
       <button onclick="changeStrike(this)">Change Strike</button>
     </div>`;
 }
+
