@@ -27,35 +27,68 @@ const icons = [
 // ------ Generate a New Sequence ------
 function makeFight() {
   const listItems = document.querySelectorAll('#sequence li');
+  const totalItems = listItems.length;
 
   listItems.forEach(item => {
     item.classList.remove('light-side', 'dark-side');
     item.textContent = '';
   });
 
-  listItems.forEach(item => {
-    const sideIndex = Math.floor(Math.random() * side.length);
-    const selectedSide = side[sideIndex];
+  let lightCount = 0;
+  let darkCount = 0;
+  const lightItems = [];
+  const darkItems = [];
 
+  for (let i = 0; i < totalItems; i++) {
+    if (lightCount < 3) {
+      lightItems.push(listItems[i]);
+      lightCount++;
+    } else if (darkCount < 3) {
+      darkItems.push(listItems[i]);
+      darkCount++;
+    } else {
+      break;
+    }
+  }
+
+  for (let i = lightCount + darkCount; i < totalItems; i++) {
+    const sideIndex = Math.floor(Math.random() * 2);
+    if (sideIndex === 0 && lightItems.length < totalItems / 2) {
+      lightItems.push(listItems[i]);
+    } else {
+      darkItems.push(listItems[i]);
+    }
+  }
+
+  lightItems.forEach(item => {
     const strikeIndex = Math.random() < 0.8 ? Math.floor(Math.random() * 8) : Math.floor(Math.random() * 2) + 8;
     const selectedStrike = strike[strikeIndex];
     const selectedIcon = icons[strikeIndex];
 
-    if (selectedSide === 'Light') {
-      item.classList.add('light-side');
-    } else {
-      item.classList.add('dark-side');
-    }
-
+    item.classList.add('light-side');
     item.innerHTML = `
-      <span class="side-icon">${selectedIcon}${selectedSide} ${selectedStrike}</span>
+      <span class="side-icon">${selectedIcon} Light ${selectedStrike}</span>
       <div class="button-container">
         <button onclick="switchSides(this)">Switch Sides</button>
         <button onclick="changeStrike(this)">Change Strike</button>
       </div>`;
+  });
 
+  darkItems.forEach(item => {
+    const strikeIndex = Math.random() < 0.8 ? Math.floor(Math.random() * 8) : Math.floor(Math.random() * 2) + 8;
+    const selectedStrike = strike[strikeIndex];
+    const selectedIcon = icons[strikeIndex];
+
+    item.classList.add('dark-side');
+    item.innerHTML = `
+      <span class="side-icon">${selectedIcon} Dark ${selectedStrike}</span>
+      <div class="button-container">
+        <button onclick="switchSides(this)">Switch Sides</button>
+        <button onclick="changeStrike(this)">Change Strike</button>
+      </div>`;
   });
 }
+
 
 // ------ Switch Sides ------
 function switchSides(button) {
