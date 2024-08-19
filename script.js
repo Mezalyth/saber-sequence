@@ -87,8 +87,20 @@ function makeFight() {
         <button onclick="changeStrike(this)">Change Strike</button>
       </div>`;
   });
+
+  addBackgroundNumbers();
+
+  // Show the Copy Sequence button
+  document.getElementById('save-fight').style.display = 'inline-block';
 }
 
+// ------ Add Background Numbers ------
+function addBackgroundNumbers() {
+  const listItems = document.querySelectorAll('#sequence li');
+  listItems.forEach((item, index) => {
+    item.setAttribute('data-step', index + 1); 
+  });
+}
 
 // ------ Switch Sides ------
 function switchSides(button) {
@@ -118,6 +130,8 @@ function switchSides(button) {
       <button onclick="switchSides(this)">Switch Sides</button>
       <button onclick="changeStrike(this)">Change Strike</button>
     </div>`;
+
+  addBackgroundNumbers();
 }
 
 // ------ Change Strike ------
@@ -169,4 +183,38 @@ function applyStrike(listItem, strikeNumber) {
       <button onclick="switchSides(this)">Switch Sides</button>
       <button onclick="changeStrike(this)">Change Strike</button>
     </div>`;
+
+  addBackgroundNumbers();
+}
+
+// ------ Copy Fight Sequence to Clipboard ------
+function saveFight() {
+  const listItems = document.querySelectorAll('#sequence li');
+  let fightSequence = '';
+
+  listItems.forEach((item) => {
+    const stepNumber = item.getAttribute('data-step');
+    const sideIconSpan = item.querySelector('.side-icon');
+    
+    const [side, ...strikeParts] = sideIconSpan.textContent.trim().split(' ');
+    const strikeText = strikeParts.join(' ');
+    
+    fightSequence += `Step ${stepNumber}: ${side} ${strikeText}\n`;
+  });
+
+  navigator.clipboard.writeText(fightSequence).then(() => {
+    showToast();
+  }).catch(err => {
+    console.error('Failed to copy fight sequence: ', err);
+  });
+}
+
+// ------ Show Toast Notification ------
+function showToast() {
+  const toast = document.getElementById('toast');
+  toast.className = 'toast show';
+  
+  setTimeout(() => {
+    toast.className = 'toast';
+  }, 2000);
 }

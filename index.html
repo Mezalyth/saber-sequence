@@ -26,8 +26,10 @@
     <li>Generate your fight.</li>
     <li>Generate your fight.</li>
   </ul>
-  <button id="generator" onclick="makeFight()">Push to Generate New Sequence</button>
-
+  <div id="actions">
+    <button id="generator" onclick="makeFight()"><i class="fa-brands fa-rebel"></i> New Sequence</button>
+    <button id="save-fight" onclick="saveFight()" style="display: none;"><i class="fa-solid fa-copy"></i> Copy Sequence</i></button>
+  </div>
   <div id="strikeModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -35,6 +37,7 @@
       <div id="strikeButtons"></div>
     </div>
   </div>
+  <div id="toast" class="toast">Fight sequence copied to clipboard!</div>
   
   <script src="script.js"></script>
 </body>
